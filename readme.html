@@ -1,0 +1,298 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+
+<head>
+	<title>FoOlReader readme</title>
+
+
+
+	<style type="text/css">
+		body{margin:0; padding:0; background: #F6F6F6; font-family:arial; color:#555555;}
+		a{color:inherit;}
+		a:hover{background:#555; color:#bbb;}
+		
+		.content{
+			background: #B4E9E3;
+			margin: 20px auto;
+			width:700px;
+			padding:20px;
+			border-radius:12px;
+			-webkit-border-radius:12px
+			}
+			
+		.code{
+			margin:5px; padding:5px; border: 1px dashed #999999;
+			font-family:monospace;
+			background: #B9EfE9;
+		}
+		
+		.suggestion{
+			font-size:x-small;
+			color:#777777;
+		}
+	</style>
+
+</head>
+
+
+<body>
+
+	<div class="content">
+		<h1>FoOlReader 0.91 readme</h1>
+		<span class="suggestion">This project is licensed under a MIT license (X11). You can find the content of the license in the LICENSE file coming with this software.</span>
+		<br/><br/>
+		<span class="suggestion">The creator of this script is <a target="_blank" href="http://woxxy.org">Woxxy</a>, leader of the <a target="_blank" href="http://foolrulez.org">FoOlRulez</a> team.<br/>
+		You can contact him about this project at [the name of this reader]@foolrulez.org
+		<br/><br/>
+		To get the latest updates about this script as soon as possible, <a href="http://facebook.com/FoOlRulez" target="_blank">follow us on Facebook</a> or <a href="http://twitter.com/woxxy" target="_blank">follow me on Twitter</a></span>
+	</div>
+	
+	<div class="content">
+	<h2>What's FoOlReader?</h2>
+		FoOlReader is a modern image browser, specifically meant to be used with <i>comics</i>.
+		<br/>
+		It's special because it doesn't need page reloads just to change the visualized image, unlike basically every other <i>comic</i> reader.
+		<br/><br/>
+		It also automatizes a lot of necessary work to display lists of available <i>comics</i>, and has custom themes. It's very easy to install, it works on almost every server, and gets your readers to love your website more.
+		<br/><br/>
+		It uses the following technologies to work: PHP, JavaScript, jQuery, HTML, Woxxy's brain.
+		<br/><br/>
+		<span class="suggestion"><a href="http://twitter.com/#!/Letter13/status/12515596822384640" target="_blank">This</a> is what they say about my brain, by the way...</span>
+	</div>
+	
+	<div class="content">
+		<h2>Contents of this readme:</h2>
+		<ul>
+			<li><a href="#requirements">Requirements</a></li>
+			<li><a href="#disclaimer">Disclaimer</a></li>
+			<li><a href="#install">How to install</a>
+				<ul>
+					<li><a href="#addcomics">How to add <i>comics</i></a></li>
+					<li><a href="#adddescriptions">How to add thumbnails and descriptions</a></li>
+				</ul>
+			</li>
+			<li><a href="#update">How to update</a></li>
+			<li><a href="#suggestions">Suggestions</a>
+				<ul>
+					<li><a href="#suggserver">About the server</a></li>
+					<li><a href="#suggbandwidth">About the bandwidth</a></li>
+					<li><a href="#suggdevs">For developers and designers</a></li>
+					<li><a href="#suggcomics">Why do I always say <i>comics</i> and not manga?</a></li>
+				</ul>
+			</li>
+			<li><a href="#changelog">Changelog</a></li>
+		</ul>
+	</div>
+
+	<div class="content" id="requirements">
+		<h2>Requirements</h2>
+		<ul>
+			<li>A server. <span class="suggestion">If you don't have this or have a slow one, <a target="_blank" href="http://www.linode.com/?r=14a9f753496f4a13247f6e7c53ab454e68f9c959">get what we use at FoOlRulez</a>, the 20$/month plan is great.</span></li>
+			<li>PHP and Apache or Nginx. <span class="suggestion">Nginx is best for small servers like ours!</span></li>
+			<li>Enough bandwidth. <span class="suggestion">200gb/month are good for any medium-sized group.</span></li>
+		</ul>
+		<span class="suggestion">There's a whole list of good suggestions at the bottom of this page!</span>
+	</div>
+	
+	<div class="content" id="disclaimer">
+	<h2>Disclaimer</h2>
+		<ul>
+			<li>FoOlRulez is not related with the content you insert in the reader.</li>
+			<li>You're in charge of backups of your files in case something or you screw up.</li>
+			<li>Always think twice before touching folders. You might delete your own <i>comics</i>.</li>
+			<li>Any more detailed disclaimer can be found in the LICENSE file coming with this software.</li>
+	</div>
+
+
+	
+	<div class="content" id="install">
+		<h2>How to install</h2>
+		Just extract the files into a folder with any name you'd like. In example:
+			<div class="code">
+				/var/www/comicreader/
+			</div>
+		and put the files in there.
+		<br/><br/>
+		Then open the file
+		<div class="code">
+				/var/www/comicreader/settings.php
+			</div>
+		and add what it asks for.
+		<br/><br/>
+		
+		<h3 id="addcomics">How to add <i>comics</i></h3>
+		Create a folder called "content". Like this:
+			<div class="code">
+				/var/www/comicreader/content/
+			</div>
+		This folder will contain everything related to your comics.
+		<br/><br/>
+		Every comic will take name from its folder:
+			<div class="code">
+				/var/www/comicreader/content/Sora no Otoshimono/
+			</div>
+		<br/>
+		Same story to add a chapter:
+			<div class="code">
+				/var/www/comicreader/content/Sora no Otoshimono/chapter 45/
+			</div>
+		or any chapter name you'd like:
+			<div class="code">
+				/var/www/comicreader/content/Sora no Otoshimono/omake 3/
+			</div>
+		and the images:
+			<div class="code">
+				/var/www/comicreader/content/Sora no Otoshimono/chapter 45/03.png
+			</div>
+		<br/><br/>
+		<h3 id="adddescriptions">How to add comics' descriptions and thumbnails</h3>
+		While it will work even without them, you better take some time to add these.
+		<br/><br/>
+		To add a description, write a file like this:
+			<div class="code">
+				/var/www/comicreader/content/Sora no Otoshimono/description.txt
+			</div>
+		<span class="suggestion">You can use HTML! I suggest using &lt;small&gt;&lt;/small&gt; in case it's too much text to be added.</span>
+		<br/><br/>
+		To add thumbnails, add a small picture like this:
+			<div class="code">
+				/var/www/comicreader/content/Sora no Otoshimono/thumb.png
+			</div>
+		or in jpeg:
+			<div class="code">
+				/var/www/comicreader/content/Sora no Otoshimono/thumb.jpg
+			</div>
+		<br/><br/>
+		<h3>How to enable advertisings</h3>
+		There's a
+			<div class="code">
+				/var/www/comicreader/ads/
+			</div>
+		folder, with 3 files. Each filename has the position of the ad.<br/><br/>
+		Avoid editing the first line, and add the code for a 728px*90px ad after the second line.
+	</div>
+	
+	<div class="content" id="update">
+		<h2>How to update</h2>
+		Save on your HD the settings.php and the
+			<div class="code">
+				/var/www/comicreader/ads/
+			</div>
+		folder, just so you have some reference and can copy/paste.<br/><br/>
+		Grab the latest version at FoOlRulez.<br/><br/>
+		Delete all the folders beside
+			<div class="code">
+				/var/www/comicreader/content/
+			</div>
+		that stores your <i>comics</i>.<br/><br/>
+		Upload all the new files from the new version.<br/><br/>
+		Update manually 
+			<div class="code">
+				/var/www/comicreader/settings.php
+			</div>
+		and the
+			<div class="code">
+				/var/www/comicreader/ads/
+			</div>
+		folder.		
+	</div>
+		
+	<div class="content" id="suggestions">
+		<h2>Suggestions</h2>
+		There's always an extra bunch of stuff you don't know. Here's some stuff that might interest you.
+		<br/><br/>
+		<ul>
+			<li><h4 id="suggserver">About the server</h4>
+				The kind of server you should prefer using is a VPS (Virtual Private Server), that is a virtualized computer inside a bigger computer, loosely said.
+				I suggest never going for servers that offer "infinite bandwidth" and "infinite space", because that's a lie.
+				It rather means "it's so slow you will never use so much bandwidth".
+				<br/><br/>
+				I get often asked on what I host, because it's impressively fast. My host is <a target="_blank" href="http://www.linode.com/?r=14a9f753496f4a13247f6e7c53ab454e68f9c959">linode.com</a>,
+				capable of pushing over 30mbit/s for the cheapest plan. That's wide enough to fill the bandwidth of the client. I run projects much heavier than this <i>comics</i> reader, and it keeps up like a charm.
+				I suggest jumping on their servers if you are in need of a hosting that works great.
+				<br/><br/>
+				Furthermore, I use Nginx with PHP-FPM as webserver, on Debian 5. 
+				Apache is what people use because it's most popular, but serious business when you need to save money requires Nginx.
+				It will perform several times faster than Apache. If you're familiar with linux or can at least follow tutorials, google about it.
+				<br/><br/>
+				What's nice, is that linode has stackscripts, so even setupping Ubuntu with Nginx should be a click away.
+				<br/><br/>
+				End of shameless linode advertising. Sorry but you guys asked for it.
+				<br/><br/>
+			</li>
+			<li><h4 id="suggbandwidth">About the bandwidth</h4>
+				My group is not small, but we use less than 200gb per month, normally, and we also provide direct downloads. It's pretty hard to go over that much bandwidth use, unless your <i>comics</i> are way too popular.
+				<br/><br/>
+			</li>
+			<li><h4 id="suggdevs">For developers and designers</h4>
+				The script has a theme system. All themes work like "child themes". You just need to create a new folder with:
+				<div class="code">
+					/var/www/comicreader/themes/yourthemename/style.css
+				</div>All other files will be automatically imported, unless you create substitutes in the same folder.
+				<br/><br/>
+				I'll provide in-depth documentation for this separately. If you're in a hurry, you can check out the comments in the file
+				<div class="code">
+					/var/www/comicreader/functions/functions.php
+				</div>
+				that contains the core of FoOlReader.
+				<br/><br/>
+			</li>
+			<li><h4 id="suggcomics">Why do I always say <i>comics</i> and not manga?</h4>
+				Because in the code of FoOlReader there's always written <i>comics</i>. Precisely, you can't say "mangas", and I needed a plural so the names of the functions would be easier to understand. So I used <i>comic</i> instead. And I'll keep doing it.
+			</li>
+		</ul>
+
+	</div>
+	
+	<div class="content" id="changelog">
+		<h2>Changelog</h2>
+		<span class="suggestion">I love writing these.</span>
+		<h4>0.91</h4>
+		<ul>
+			<li>changed deprecated set_magic_quotes_runtime() function in favor of phpini()</li>
+			<li>fixed missing "traditional" php tag in functions.php</li>
+			<li>fixed bug that wouldn't let chapter change after the last page has been read (ampersands)</li>
+			<li>fixed bug that wouldn't let thumbnails work on some servers (rawurlencode)</li>
+			<li>fixed my typo in the blueharu theme</li>
+			<li>fixed and simplified javascript in blueharu theme (dropdowns)</li>
+		</ul>
+		<div class="suggestion">Personal notes: I don't like doing new versions 10 hours later, but this was important.</div>
+		<br/><br/>
+		<h4>0.9</h4>
+		<ul>
+			<li>made the theme fully HTML5 w3c compliant</li>
+			<li>commented most of code, beside the theme, which would be redundant</li>
+			<li>improved compatibility with Internet Explorer</li>
+			<li>improved compatibility with servers</li>
+			<li>improved compatibility with UTF-8 characterset</li>
+			<li>updated default theme to an even more generic style</li>
+			<li>updated preloading bar with single-line system</li>
+			<li>updated preloading</li>
+			<li>updated automatic page scrolling</li>
+			<li>updated thumbnail system</li>
+			<li>updated system for spread pages</li>
+			<li>moved the default theme functions into the theme file functions.php</li>
+			<li>added a page to list all the chapters of a <i>comic</i></li>
+			<li>added "back to site" button activable from settings</li>
+			<li>added error catching for chapters with no pages, <i>comics</i> with no chapters, no <i>comics</i> at all</li>
+			<li>added hash system in URL (#page=1) compatible with browser history (back button)</li>
+			<li>fixed CSS to deal with antialiasing on IE and Firefox</li>
+			<li>fixed dropdowns to work only by clicking and to close if user clicks anywhere else</li>
+			<li>fixed bug where some characters in image filanames made the reader skip the file</li>
+			<li>fixed bug with spread pages where keyboard wouldn't let reader move the page</li>
+			<li>fixed over 30 other rare bugs</li>
+		</ul>
+		<div class="suggestion">Personal notes: I had enough of programming in software that is almost like Notepad. From now on I'll try using Netbeans or Eclipse.</div>
+		<br/><br/><h4>0.8</h3>
+		<ul>
+			<li>initial public release</li>
+		</ul>
+		<div class="suggestion">Personal notes: why the hell am I doing this to myself?</div>
+	</div>
+
+
+
+
+</body>
+</html>
